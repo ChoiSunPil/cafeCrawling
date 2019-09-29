@@ -4,6 +4,12 @@
 
 NAVER PLACE 기반으로 크롤링 진행
 
+
+## 사전 html 지식
+* span : 영역 나누기
+* div : 영역 나누기 ,밑으로 내려감
+* ul : 순서 없는 목록
+* li : ul 원소
 ## 라이브러리
 
 * beautifulsoup
@@ -20,3 +26,5 @@ NAVER PLACE 기반으로 크롤링 진행
 * https://beomi.github.io/2017/02/27/HowToMakeWebCrawler-With-Selenium/
 
 * https://wayhome25.github.io/python/2017/04/25/cs-27-crawling/
+
+* https://l0o02.github.io/2018/06/10/python-crawling-2/

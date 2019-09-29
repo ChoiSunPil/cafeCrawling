@@ -32,3 +32,13 @@ menus = soup.select('div.ct_box_area > div.bizinfo_area > div.list_bizinfo > div
 
 for n in menus :
     print(n.text.strip())
+
+# 지하철 역
+subways = soup.select('#panel01 > div > div.sc_box.contact > div.contact_area > div.transport_area > div > ul.list_station > li > div > div > a')
+
+
+#얼마나 걸리는지
+t = soup.select('#panel01 > div > div.sc_box.contact > div.contact_area > div.transport_area > div > ul > li > div > div > span > span')
+for i in range(0,len(t)) :
+    print("지하철 역",subways[i].text.strip(),", 도보 :",t[i].find_all('em')[0].text.strip())
+    print("----------------------")
