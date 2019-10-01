@@ -28,3 +28,7 @@ NAVER PLACE 기반으로 크롤링 진행
 * https://wayhome25.github.io/python/2017/04/25/cs-27-crawling/
 
 * https://l0o02.github.io/2018/06/10/python-crawling-2/
+
+* https://beomi.github.io/2017/09/28/HowToMakeWebCrawler-Headless-Chrome/
+
+* https://wkdtjsgur100.github.io/selenium-xpath/

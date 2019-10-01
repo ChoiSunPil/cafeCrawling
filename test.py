@@ -1,24 +1,25 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
-driver = webdriver.Chrome('./chromedriver')
 
+
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+driver = webdriver.Chrome('./chromedriver',chrome_options =options)
 #자원 로드 될때 까지 기다림
+keyWord = input("카페 이름 상세히 입력해주세요 :") 
 driver.implicitly_wait(3)
+driver.get('https://naver.com')
+html = driver.page_source
+soup = BeautifulSoup(html, 'html.parser')
+elem =driver.find_element_by_name('query').send_keys(keyWord)
+btn = driver.find_element_by_xpath('//*[@id="sform"]/fieldset/button').click()
 
-# driver.get('https://naver.com')
-# html = driver.page_source
-# soup = BeautifulSoup(html, 'html.parser')
-# elem =driver.find_element_by_name('query').send_keys('투썸')
-# btn = driver.find_element_by_xpath('//*[@id="sform"]/fieldset/button').click()
-
-
-driver.get('https://store.naver.com/restaurants/detail?id=12952314')
+driver.find_element_by_xpath('//*[@id="place_main_ct"]/div/div/div[1]/div[3]/a').click()
 html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')
 
 # 전화 번호
 phone = soup.select('div.ct_box_area > div.bizinfo_area > div.list_bizinfo > div.list_item.list_item_biztel > div.txt')
-
 print("전화 번호 : ",phone[0].text.strip())
 
 # 개장 시간
@@ -42,3 +43,6 @@ t = soup.select('#panel01 > div > div.sc_box.contact > div.contact_area > div.tr
 for i in range(0,len(t)) :
     print("지하철 역",subways[i].text.strip(),", 도보 :",t[i].find_all('em')[0].text.strip())
     print("----------------------")
+
+
+# driver.quit()
