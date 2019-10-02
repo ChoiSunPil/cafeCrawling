@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 options = webdriver.ChromeOptions()
-# options.add_argument('headless')
+options.add_argument('headless')
 driver = webdriver.Chrome('./chromedriver',chrome_options =options)
 #자원 로드 될때 까지 기다림
 keyWord = input("카페 이름 상세히 입력해주세요 :") 
@@ -27,16 +27,16 @@ phone = soup.select('div.ct_box_area > div.bizinfo_area > div.list_bizinfo > div
 print("전화 번호 : ",phone[0].text.strip())
 
 # 개장 시간
-notices = soup.select('div.ct_box_area > div.bizinfo_area > div.list_bizinfo > div.list_item.list_item_biztime > div.txt')
+notices = soup.select('#content > div:nth-child(2) > div > div > div.list_item.list_item_biztime > div > div > div > div')
 #print(list(notices))
 for n in notices:
     print(n.text.strip())
 
 # 카페 메뉴
-menus = soup.select('div.ct_box_area > div.bizinfo_area > div.list_bizinfo > div.list_item.list_item_menu > div.txt')
-
-for n in menus :
-    print(n.text.strip())
+menus = soup.select('#content > div:nth-child(2) > div > div > div.list_item.list_item_menu > div > ul > li > div > div > div > span')
+price = soup.select('#content > div:nth-child(2) > div > div > div.list_item.list_item_menu > div > ul > li > div > em')
+for i in range(0,len(menus)) :
+    print("메뉴 : ",menus[i].text.strip()," 가격 : ",price[i].text.strip())
 
 # 지하철 역
 subways = soup.select('#panel01 > div > div.sc_box.contact > div.contact_area > div.transport_area > div > ul:nth-child(2)> li > div > div > a')
