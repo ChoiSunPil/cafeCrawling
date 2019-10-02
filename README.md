@@ -15,6 +15,12 @@ NAVER PLACE 기반으로 크롤링 진행
 * beautifulsoup
 *  selenium
 
+
+
+## 실행 결과
+
+![스크린샷 2019-10-03 오전 12.45.32](/Users/choisunpil/Desktop/crawling/스크린샷 2019-10-03 오전 12.45.32.png)
+
 ## 사용 tool
 
 * chromedriver
